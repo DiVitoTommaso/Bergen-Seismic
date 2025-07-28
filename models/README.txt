@@ -1,0 +1,1 @@
+This directory contains the implementation code for the components of the pipeline.

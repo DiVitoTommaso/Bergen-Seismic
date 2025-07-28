@@ -4,7 +4,6 @@ Copyright (c) 2024-present NAVER Corp.
 CC BY-NC-SA 4.0 license
 '''
 
-import openai
 from tqdm import tqdm
 import numpy as np
 import os
@@ -89,7 +88,7 @@ def create_pairwise_instruction(question, ref_answer, answer_1, answer_2):
 class OpenAI():
     
     def __init__(self, model):
-        self.client = openai.OpenAI(api_key = os.environ.get("OPENAI_API_KEY"),)
+        self.client = openai.OpenAI(api_key = os.environ.get("OPENAI_API_KEY"), )
         self.model_name=model
         
     def __call__(self, predictions, references, questions):

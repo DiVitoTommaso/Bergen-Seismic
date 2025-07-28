@@ -2,7 +2,7 @@ import datasets
 from tqdm import tqdm
 import sys
 sys.path.append("../")
-from utils import get_oracle_ranking_filename
+from bergen.utils import get_oracle_ranking_filename
 
 run_folder = '../runs'
 split = 'dev'

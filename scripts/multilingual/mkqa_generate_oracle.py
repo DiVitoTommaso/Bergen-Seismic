@@ -5,10 +5,7 @@ import sys
 sys.path.append(dir_path+'/../..')
 
 import datasets
-import urllib.request
-from collections import defaultdict
-import json 
-from utils import get_oracle_ranking_filename
+from bergen.utils import get_oracle_ranking_filename
 
 lng = sys.argv[1]
 lng_mkqa = lng if lng != "zh" else "zh_cn"

@@ -1,4 +1,4 @@
-from models.context_processors.context_processor import ContextProcessor
+from bergen.models.context_processors.context_processor import ContextProcessor
 from typing import List
 from llmlingua import PromptCompressor
 from tqdm import tqdm

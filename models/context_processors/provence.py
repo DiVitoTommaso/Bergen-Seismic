@@ -1,4 +1,4 @@
-from models.context_processors.context_processor import ContextProcessor, get_compression
+from bergen.models.context_processors.context_processor import ContextProcessor, get_compression
 from transformers import AutoModel
 from typing import List
 import torch

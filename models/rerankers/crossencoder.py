@@ -8,7 +8,7 @@ from transformers import AutoModelForSequenceClassification, AutoTokenizer
 import torch
 
 
-from models.rerankers.reranker import Reranker
+from bergen.models.rerankers.reranker import Reranker
 
 class CrossEncoder(Reranker):
     def __init__(self, model_name=None,max_len=512):

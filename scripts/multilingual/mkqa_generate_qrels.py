@@ -5,10 +5,9 @@ import sys
 sys.path.append(dir_path+'/../..')
 
 import datasets
-from utils import get_qrel_ranking_filename
+from bergen.utils import get_qrel_ranking_filename
 import json
 from collections import defaultdict
-import urllib
 
 lng = sys.argv[1]
 lng_mkqa = lng if lng != "zh" else "zh_cn"

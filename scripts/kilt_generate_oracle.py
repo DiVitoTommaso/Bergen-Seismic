@@ -6,7 +6,7 @@ from collections import defaultdict
 import json 
 import os 
 sys.path.append('../')
-from utils import get_oracle_ranking_filename
+from bergen.utils import get_oracle_ranking_filename
 dataset_names = ['nq']
 #dataset_names = ['aidayago2', 'cweb', 'eli5', 'fever', 'hotpotqa', 'nq', 'structured_zeroshot', 'trex', 'triviaqa_support_only', 'wned', 'wow']
 top_n_oracle_passages = 100

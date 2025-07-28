@@ -2,7 +2,7 @@ import datasets
 import os
 import sys
 sys.path.append('../')
-from utils import get_qrel_ranking_filename
+from bergen.utils import get_qrel_ranking_filename
 import json
 from collections import defaultdict
 import urllib

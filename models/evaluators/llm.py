@@ -9,7 +9,7 @@ import omegaconf
 from tqdm import tqdm
 import torch
 from hydra.utils import instantiate
-from models.evaluators.utils import process_llm_outputs_assess_scores, get_mean_without_unknown, unswitch_switched_scores, set_tq_description, get_pairwise_scores_without_unknown
+from bergen.models.evaluators.utils import process_llm_outputs_assess_scores, get_mean_without_unknown, unswitch_switched_scores, set_tq_description, get_pairwise_scores_without_unknown
 import gc
 import random
 

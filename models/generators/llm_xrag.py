@@ -6,10 +6,9 @@ CC BY-NC-SA 4.0 license
 
 from transformers import AutoTokenizer
 import torch
-from models.generators.generator import Generator
+from bergen.models.generators.generator import Generator
 import random
-from transformers import StoppingCriteria
-from models.generators.xrag import XMistralForCausalLM, SFR, XMixtralForCausalLM
+from bergen.models.generators.xrag import XMistralForCausalLM, SFR, XMixtralForCausalLM
 import transformers
 from typing import List
 

@@ -14,7 +14,7 @@ from hydra.utils import instantiate
 
 import pandas as pd
 import numpy as np
-from utils import (
+from bergen.utils import (
     eval_retrieval_kilt, init_experiment, move_finished_experiment,
     write_trec, prepare_dataset_from_ids, load_trec,
     print_generate_out, print_rag_model,
@@ -22,12 +22,12 @@ from utils import (
     get_context_processing_filename,
     get_reranking_filename, format_time, get_ranking_filename, get_finished_experiment_name
 )
-from modules.retrieve import Retrieve
-from modules.rerank import Rerank
-from modules.generate_query import GenerateQueries
-from modules.process_context import ProcessContext
-from modules.dataset_processor import ProcessDatasets
-from modules.metrics import RAGMetrics
+from bergen.modules.retrieve import Retrieve
+from bergen.modules.rerank import Rerank
+from bergen.modules.generate_query import GenerateQueries
+from bergen.modules.process_context import ProcessContext
+from bergen.modules.dataset_processor import ProcessDatasets
+from bergen.modules.metrics import RAGMetrics
 
 
 class RAG:
@@ -128,7 +128,7 @@ class RAG:
         if context_processor_config is None:
             context_processor_config = config.context_processor if hasattr(config, 'context_processor') else None
         if dataset_config is None:
-            dataset_config = config.dataset if hasattr(config, 'dataset') else None
+            dataset_config = config.all if hasattr(config, 'dataset') else None
 
         if query_generator_config is None:
             query_generator_config = {"init_args": {"_target_": "models.query_generators.copy.CopyQuery"}}
@@ -512,7 +512,7 @@ class RAG:
         import torch
         from transformers import TrainingArguments, Trainer
         from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
-        from modules.dataset import Tokenized_Sorted_Dataset
+        from bergen.modules.dataset import Tokenized_Sorted_Dataset
 
         dataset_split = 'train'
         dataset = self.datasets[dataset_split] 

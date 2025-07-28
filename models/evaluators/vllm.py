@@ -7,9 +7,9 @@ CC BY-NC-SA 4.0 license
 from tqdm import tqdm
 from vllm import SamplingParams
 import torch
-from models.evaluators.llm import BaseEval
+from bergen.models.evaluators.llm import BaseEval
 import omegaconf
-from models.evaluators.utils import process_llm_outputs_assess_scores, get_mean_without_unknown, unswitch_switched_scores, get_pairwise_scores_without_unknown, set_tq_description
+from bergen.models.evaluators.utils import process_llm_outputs_assess_scores, get_mean_without_unknown, unswitch_switched_scores, get_pairwise_scores_without_unknown, set_tq_description
 import logging
 logger = logging.getLogger(__name__)
 
@@ -29,6 +29,7 @@ class VLLMeval(BaseEval):
             temperature=0.0,
             top_p=1,
             top_k=-1,
+            use_beam_search=False,
             max_tokens=eval_config['max_new_tokens'],
             presence_penalty=0,
             frequency_penalty=0,

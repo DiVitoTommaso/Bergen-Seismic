@@ -13,8 +13,8 @@ import warnings
 from peft import AutoPeftModelForCausalLM, PeftConfig
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
-from utils import prepare_labels, left_pad
-from models.generators.generator import Generator
+from bergen.utils import left_pad
+from bergen.models.generators.generator import Generator
 
 random.seed(42)
 
@@ -24,14 +24,13 @@ class LLM(Generator):
                 model_name: str = None,
                 batch_size: int = 1, 
                 max_new_tokens: int = 1, 
-                max_doc_len: int = 10**10,
+                max_doc_len: int = 100,
                 max_length: int = None,
                 prompt: str = None,
                 quantization: str = None,
                 gguf_file: str = None,
                 attn_implementation: str = "flash_attention_2",
                 local_path: bool = False,
-                use_middle_truncation: bool = False
                 ):
         """
         :model_name: hf model name or path to a local checkpoint
@@ -45,8 +44,7 @@ class LLM(Generator):
                            batch_size=batch_size,
                            max_new_tokens=max_new_tokens,
                            max_doc_len=max_doc_len,
-                           max_length=max_length,
-                           use_middle_truncation=use_middle_truncation)
+                           max_length=max_length)
         # check type of gpu: if not A100 then change attn implementation to sdpa
         if "A100" not in torch.cuda.get_device_name(torch.cuda.current_device):
             attn_implementation="sdpa"

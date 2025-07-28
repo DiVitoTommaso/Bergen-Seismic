@@ -3,7 +3,7 @@
 
 import sys
 sys.path.append('../')
-from utils import eval_retrieval_kilt, get_ranking_filename,load_trec
+from bergen.utils import eval_retrieval_kilt, load_trec
 import os
 from omegaconf import OmegaConf
 import json

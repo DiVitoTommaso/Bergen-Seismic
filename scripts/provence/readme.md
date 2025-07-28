@@ -72,11 +72,13 @@ python3 bergen.py +context_processor=provence/provence_rerank_0.1 dataset=multid
 python3 bergen.py +context_processor=provence/provence_standalone_0.1 dataset=multidomain/pubmed_bioasq11b_ragged retriever='splade-v3' reranker='debertav3' ++generation_top_k=5 generator='vllm_llama-2-7b-chat'
 ```
 
+_The code for evaluation is currently in [pull-request](https://github.com/naver/bergen/pull/40) and will be merged soon._
+
 ### Training Provence models
 
-Training consists of three steps: (1) retrieval+reranking; (2) data labeling; (3) training Provence model. We also provide below the [data](https://github.com/naver/bergen/blob/main/scripts/provence/readme.md#our-training-data-obtained-after-steps-1--2) obtained after steps 1 and 2 so that you can jump directly to [step 3](https://github.com/naver/bergen/tree/main/scripts/provence#step-3-training-provence).
+Training consists of three steps: (1) retrieval+reranking; (2) data labeling; (3) training Provence model.
 
-If you have any questions, do not hesitate to contact us by corresponding emails specified in the [paper](https://openreview.net/forum?id=TDy5Ih78b4&noteId=TDy5Ih78b4)!
+If you have any questions, do not hesitate to contact us by corresponding emails specified in the [paper](https://openreview.net/forum?id=TDy5Ih78b4&noteId=TDy5Ih78b4)! We can also share the data obtained after steps 1 and 2 which take the longest time.
 
 #### Step 1: retrieval+reranking
 
@@ -124,26 +126,7 @@ The script for training `train_provence.py` is provided in the same folder as th
 
 * `PATH_TO_DATA`: the data folder generated in step 2
 * `TRAINING_TYPE`: "joint" for joint reranking+context compression model, "compression" for compression-only (standlone) model, "ranking" for reranking only
-* `PATH_TO_RUN`: `.trec` file generated in step 1 (only needed to train the reranking head).
+* `PATH_TO_RUN`: `.trec` file generated in step 1 (only needed to train the reranking head). If you use the same setting as ours, it's `../../runs/run.rerank.retriever.top_50.naver_splade-v3.rerank.top_50.ms-marco-docs-v1-queries-dev.ms-marco-docs-v1-chunked-v1.dev.naver_trecdl22-crossencoder-debertav3.trec`
 * `EXP_FOLDER`: your custom folder where to save the checkpoints and the logs
 
 Do not forget your CUDA / sbatch settings! One epoch on the full MS Marco data takes several days, but you can get good results with smaller data, e.g. 1/10 of the whole set.
-
-
-### Our training data obtained after steps 1 & 2
-
-Here you can find zip archives for MS Marco and NQ data, for context pruning:
-
-MS Marco: https://drive.google.com/file/d/1UYyZlB-t_T3uloPb5dJxCVWn22IQOP6s/view?usp=sharing
-
-NQ: https://drive.google.com/file/d/18qBPAoAmJGXrdVzpOHgylTOyCEIl_hk5/view?usp=sharing
-
-Each archive includes a set of jsons, each json contains a question-context pair & a LLama-3-8B-generated answer & extracted indexes of relevant sentences.
-
-Here are the corresponding trec runs:
-
-MS Marco: https://drive.google.com/file/d/1A_IZMDYxzZHjmG4lCfNySI3wGCMd6IWG/view?usp=sharing
-
-NQ: https://drive.google.com/file/d/1ZVx7rUygGE1qZfDdaly2xoSEZ6h560ma/view?usp=sharing
-
-We train the final model on a mix of both, but training separately on one of them also gives good results. MS Marco is larger and leads to a bit better model, NQ is smaller -> faster training.

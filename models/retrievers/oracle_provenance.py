@@ -4,7 +4,7 @@ Copyright (c) 2024-present NAVER Corp.
 CC BY-NC-SA 4.0 license
 '''
 
-from models.retrievers.retriever import Retriever
+from bergen.models.retrievers.retriever import Retriever
 
 class OracleProvenance(Retriever): 
 

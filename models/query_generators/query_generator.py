@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import List
-from models.generators.generator import Generator
+from bergen.models.generators.generator import Generator
 
 class QueryGenerator(ABC):
     generator = None

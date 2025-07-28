@@ -7,7 +7,7 @@ CC BY-NC-SA 4.0 license
 from transformers import AutoModel, AutoTokenizer, BitsAndBytesConfig
 import torch
 from peft import PeftModel, PeftConfig
-from models.retrievers.retriever import Retriever
+from bergen.models.retrievers.retriever import Retriever
 
 
 class RepLlama(Retriever):

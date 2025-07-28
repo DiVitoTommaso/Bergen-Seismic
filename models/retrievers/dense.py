@@ -6,7 +6,7 @@ CC BY-NC-SA 4.0 license
 
 from transformers import AutoModel, AutoTokenizer
 import torch
-from models.retrievers.retriever import Retriever
+from bergen.models.retrievers.retriever import Retriever
 
 class Dense(Retriever):
     #low_cpu_mem_usage=True,

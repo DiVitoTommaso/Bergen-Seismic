@@ -4,13 +4,18 @@ train:
 dev:
     doc: 
         init_args:
-            _target_: modules.dataset_processor.MsMarcoCollection
-            split: "full"
+            _target_: modules.processors.dataset_processor.MsMarcoCorpus
+            split: "dev"
     
-    query: 
+    query:
         init_args:
-            _target_: modules.dataset_processor.MsMarcoQueries
-            split: "validation"
+            _target_: modules.processors.dataset_processor.MsMarcoQueries
+            split: "train"
+
+    #query:
+    #    init_args:
+    #        _target_: modules.processors.msmarco_dataset_processor.MsMarcoFullDocQueries
+    #        split: "train"
 test:
     doc: null
     query: null

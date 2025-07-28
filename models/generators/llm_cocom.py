@@ -5,7 +5,7 @@ import warnings
 from tqdm import tqdm
 from torch.utils.data import DataLoader
 
-from models.generators.generator import Generator
+from bergen.models.generators.generator import Generator
 
 
 class LLMCocom(Generator):

@@ -16,17 +16,17 @@ index_folder: 'indexes/'
 runs_folder: 'runs/'
 generated_query_folder: 'generated_queries/'
 processed_context_folder: 'processed_contexts/'
-experiments_folder: 'experiments/'   
+experiments_folder: 'experiments/'    
 
 # topk documents to retrieve, rerank and to use for generation
-retrieve_top_k: 50
-rerank_top_k: 50
+retrieve_top_k: 10
+rerank_top_k: 10
 generation_top_k: 5
 
 
 #
-pyserini_num_threads: 20
-processing_num_proc: 40
+pyserini_num_threads: 64
+processing_num_proc: 1
 hydra:
     job:
         chdir: False

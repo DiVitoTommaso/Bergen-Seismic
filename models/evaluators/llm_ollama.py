@@ -4,16 +4,12 @@ Copyright (c) 2024-present NAVER Corp.
 CC BY-NC-SA 4.0 license
 '''
 
-from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 from tqdm import tqdm
 import torch
-import re
-import numpy as np
 from langchain_community.llms import Ollama
-import ollama
 from langchain_core.prompts import ChatPromptTemplate
 import omegaconf
-from models.evaluators.utils import *
+
 
 class OllamaEval:
     """

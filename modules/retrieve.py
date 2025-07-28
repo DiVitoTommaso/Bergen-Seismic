@@ -15,7 +15,7 @@ import torch
 import os 
 import glob
 from hydra.utils import instantiate
-from utils import load_embeddings
+from bergen.utils import load_embeddings
 
 class Retrieve:
     def __init__(self, 
@@ -126,6 +126,7 @@ class Retrieve:
             if self.continue_batch != None:
                 if i <= self.continue_batch:
                     continue
+            ################################################# QUI!!!
             outputs = self.model(query_or_doc, batch)
             emb = outputs['embedding']
             if save_path != None:
@@ -152,8 +153,7 @@ class Retrieve:
         for emb_chunk in doc_embeds:
             emb_chunk = emb_chunk.to('cuda')
             scores_q = self.model.similarity_fn(emb_q, emb_chunk)
-            # if detach_and_cpu:
-            #     scores_q = scores_q.detach().cpu().float()
+            ###################################### QUI!!!!
             scores_sorted_q, indices_sorted_q = torch.topk(scores_q, top_k_documents, dim=1)
             top_k_scores_list.append(scores_sorted_q)
             top_k_indices_list.append(indices_sorted_q+num_emb)
@@ -183,9 +183,6 @@ class Retrieve:
             return final_top_k_scores, final_top_k_indices, final_top_k_embeddings
         else:
             return final_top_k_scores, final_top_k_indices, None
-
-    
-   
 
     def tokenize(self, example):
        return self.model.tokenize(example)

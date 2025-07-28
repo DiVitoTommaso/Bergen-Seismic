@@ -1,12 +1,9 @@
 import datasets
 
 import sys
-import urllib.request
-from collections import defaultdict
-import json 
-import os 
+
 sys.path.append('../')
-from utils import get_oracle_ranking_filename
+from bergen.utils import get_oracle_ranking_filename
 dataset_names = ['bioasq11b']
 top_n_oracle_passages = 100
 run_folder = '../runs'

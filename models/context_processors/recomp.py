@@ -1,12 +1,10 @@
 from transformers import AutoTokenizer, AutoModel
 from transformers import T5ForConditionalGeneration
-from models.context_processors.context_processor import ContextProcessor
-import torch.nn.functional as F
+from bergen.models.context_processors.context_processor import ContextProcessor
 import torch
 from typing import List
 from tqdm import tqdm
 import nltk
-import string
 import numpy as np
 
 def mean_pooling(token_embeddings, mask):

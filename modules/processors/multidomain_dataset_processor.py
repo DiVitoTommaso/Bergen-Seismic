@@ -1,5 +1,5 @@
 from ..dataset_processor import Processor
-from modules.processors.utils import chunk_text, listify_label
+from bergen.modules.processors.utils import chunk_text, listify_label
 import datasets
 import json
 import zipfile

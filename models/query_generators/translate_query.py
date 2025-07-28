@@ -1,8 +1,8 @@
-from models.query_generators.query_generator import QueryGenerator
+from bergen.models.query_generators.query_generator import QueryGenerator
 from typing import List
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 from tqdm import tqdm
-from modules.metrics import normalize
+from bergen.modules.metrics import normalize
 import torch
 
 class TranslateQuery(QueryGenerator):

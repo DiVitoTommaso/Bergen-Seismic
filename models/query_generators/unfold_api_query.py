@@ -1,6 +1,5 @@
-from models.query_generators.query_generator import QueryGenerator
+from bergen.models.query_generators.query_generator import QueryGenerator
 from typing import List
-from tqdm import tqdm
 from datasets import Dataset
 
 class UnfoldAPIQuery(QueryGenerator):

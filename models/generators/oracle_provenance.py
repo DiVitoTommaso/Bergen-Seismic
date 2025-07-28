@@ -3,7 +3,7 @@ BERGEN
 Copyright (c) 2024-present NAVER Corp.
 CC BY-NC-SA 4.0 license
 '''
-from models.generators.generator import Generator
+from bergen.models.generators.generator import Generator
 
 
 class OracleProvenance(Generator):

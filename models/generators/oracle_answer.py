@@ -3,7 +3,7 @@ BERGEN
 Copyright (c) 2024-present NAVER Corp.
 CC BY-NC-SA 4.0 license
 '''
-from models.generator.oracle_provenance import OracleProvenance
+from bergen.models import OracleProvenance
 
 
 class OracleAnswer(OracleProvenance):
